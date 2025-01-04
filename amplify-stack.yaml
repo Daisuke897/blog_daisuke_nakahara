@@ -10,7 +10,7 @@ Parameters:
 Resources:
   AmplifyApp:
     Type: AWS::Amplify::App
-    UpdateReplacePolicy: Retain
+    UpdateReplacePolicy: Delete
     DeletionPolicy: Delete
     Properties:
       Name: blog_daisuke_nakahara
@@ -43,7 +43,7 @@ Resources:
 
   AmplifyBranch:
     Type: AWS::Amplify::Branch
-    UpdateReplacePolicy: Retain
+    UpdateReplacePolicy: Delete
     DeletionPolicy: Delete
     Properties:
       AppId: !GetAtt AmplifyApp.AppId
