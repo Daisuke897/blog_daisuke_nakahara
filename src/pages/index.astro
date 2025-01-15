@@ -1,8 +1,45 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Naputo";
+import BlogPost from "../components/BlogPost.astro";
+import { getCollection } from "astro:content";
+const pageTitle = "Naputo 学びを形に";
+const allPosts = await getCollection("blog");
 ---
 
+<style>
+	.header-new-posts {
+		text-align: center;
+	}
+
+	.button-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.rounded-button {
+		padding: 10px 20px;
+		background-color: rgba(192, 192, 192, 0.3);
+		border-radius: 10px;
+		font-size: 16px;
+	}
+</style>
 <BaseLayout pageTitle={pageTitle}>
-	<h2>アプトプットの場として、プログラミングや書評を共有します。</h2>
+	<h2>20代のエンジニアによる技術や書評のアウトプットブログ</h2>
+	<h3 class="header-new-posts">新しい記事 一覧</h3>
+	<ul>
+		{
+			allPosts
+				.slice(0, 6)
+				.map((post: any) => (
+					<BlogPost
+						url={`/posts/${post.id}/`}
+						title={post.data.title}
+					/>
+				))
+		}
+	</ul>
+	<div class="button-container">
+		<a href="/blog/" class="rounded-button">記事の一覧</a>
+	</div>
 </BaseLayout>
