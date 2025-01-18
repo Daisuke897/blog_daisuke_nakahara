@@ -1,5 +1,24 @@
 ---
-const { title, url } = Astro.props;
+const { title, url, datetime } = Astro.props;
 ---
 
-<li><a href={url}>{title}</a></li>
+<style>
+    .new-article {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+    .new-article-date {
+        font-size: 14px;
+        color: #666;
+    }
+    .new-article-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333f;
+    }
+</style>
+<div class="new-article">
+    <div class="new-article-date">{datetime}</div>
+    <a class="new-article-title" href={url}>{title}</a>
+</div>
