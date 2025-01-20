@@ -1,32 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "About このブログについて";
+const pageTitle = "ブログ・筆者について";
 
-const identity = {
-	firstName: "Sarah",
-	country: "Canada",
-	occupation: "Technical Writer",
-	hobbies: ["photography", "birdwatching", "baseball"],
-};
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
-const happy = true;
-const finished = true;
-const goal = 3;
-
-const skillColor = "navy";
-const fontWeight = "bold";
-const textCase = "uppercase";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<style is:global define:vars={{ skillColor, fontWeight, textCase }}>
-		.skill {
-			color: var(--skillColor);
-			font-weight: var(--fontWeight);
-			text-transform: var(--textCase);
-		}
-	</style>
-
+<h2>Daisuke Nakahara</h2>
+<div>2024年3月に、土木系の大学院を修了。2024年4月より、エンジニアとしてのキャリアをスタートする。<br>
+これまであまり重視しなかったアウトプットに力を入れ、一歩ずつ成長していく所存である。</div>
 </BaseLayout>
