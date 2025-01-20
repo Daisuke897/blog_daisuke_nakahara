@@ -29,7 +29,7 @@ const allPosts = await getCollection("blog");
 </style>
 <BaseLayout pageTitle={pageTitle}>
 	<h2>20代のエンジニアによる技術や書評のアウトプットブログ</h2>
-	<h3 class="header-new-posts">新しい記事 一覧</h3>
+	<h3 class="header-new-posts">新しい記事</h3>
 	<div class="new-articles">
 		{
 			allPosts.slice(0, 6).map((post: any) => (

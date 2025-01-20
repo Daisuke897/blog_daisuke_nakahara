@@ -7,13 +7,26 @@ const allPosts = await getCollection("blog");
 const pageTitle = "新着記事";
 ---
 
+<style>
+	.list-articles {
+		text-align: start;
+		margin-bottom: 2rem;
+	}
+</style>
 <BaseLayout pageTitle={pageTitle}>
-	<p>This is where I will post about my journey learning Astro.</p>
-	<ul>
+	<div class="list-articles">
 		{
 			allPosts.map((post: any) => (
-				<BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
+				<BlogPost
+					url={`/posts/${post.id}/`}
+					title={post.data.title}
+					datetime={post.data.pubDate.toLocaleDateString("ja-JP", {
+						year: "numeric",
+						month: "2-digit",
+						day: "2-digit",
+					})}
+				/>
 			))
 		}
-	</ul>
+	</div>
 </BaseLayout>
